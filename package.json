@@ -48,7 +48,7 @@
     "babel-polyfill": "^6.23.0",
     "bugsnag-js": "^3.3.3",
     "font-awesome": "4.6.3",
-    "jquery": "2.2.3",
+    "jquery": "3.4.0",
     "moment": "^2.15.1",
     "moment-timezone": "^0.5.5",
     "ngstorage": "^0.3.10"
