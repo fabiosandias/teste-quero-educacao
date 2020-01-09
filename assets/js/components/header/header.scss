@@ -1,0 +1,116 @@
+header {
+  .header {
+    width: 100%;
+    background: #a54a4e;
+  }
+  
+  .header__one, .header__two {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+  }
+  
+  .header__one {
+    background: #FFF;
+  }
+  
+  .header__two {
+    background: rgb(24,172,196);
+    background: linear-gradient(0deg, rgba(24,172,196,1) 91%, rgba(0,135,141,1) 100%);
+  }
+  
+  .header__container-one {
+    width: 1170px;
+    display: flex;
+    height: 70px;
+    justify-content: space-between;
+  }
+  .header__how-it-works {
+    background: #FFF;
+    display: flex;
+    align-items: center;
+    padding: 0 30px 0 0;
+    border-right: 3px solid #FBFBFB;
+  
+  }
+  .header__how-it-works--text {
+  
+  }
+  
+  .header-font-default {
+    color: #18ACC4;
+    font-weight: 700;
+    font-size: 17px;
+  }
+  
+  .header__how-it-works--icon, .header__name-icon--icon {
+    font-size: 23px;
+  }
+  
+  .header__phone {
+    background: #dcdcdc;
+    padding:  0 0 0 30px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 35px);
+  }
+  
+  .header__phone--icon {
+    background: #18ACC4;
+    height: 70px;
+    width: 50px;
+    grid-area: 1 / 1 / 2 / 2;
+  }
+  
+  .header__phone--number {
+    background: #FBFBFB;
+    grid-area: 1 / 2 / 2 / 3;
+  }
+  .header__phone--text {
+    background: gainsboro;
+    grid-area: 2 / 2 / 3 / 3;
+  }
+  
+  .header__logo {
+    background: aquamarine;
+  }
+  .header__name-icon {
+    display: flex;
+    align-items: center;
+  }
+  
+  .header__container-twe {
+    width: 1170px;
+  }
+  
+  .header__menu {
+    height: 40px;
+    display: flex;
+    align-items: center;
+  }
+  
+  .header__menu-ul {
+    display: flex;
+    list-style: none;
+    padding-inline-start: 0;
+    margin-block-start: 0;
+    margin-block-end: 0;
+  }
+  
+  .header__menu-ul-item {
+  
+  }
+  
+  .header__menu-ul-item--link {
+    color: #FFF;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    padding: 10px;
+  }
+  
+  .header__menu-ul-item--link:hover {
+    background: #007A8D;
+  }
+  
+}
