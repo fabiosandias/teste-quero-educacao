@@ -1,0 +1,36 @@
+buttons-filter {
+  .button-filter {
+    display: flex;
+    flex-direction: row-reverse;
+    margin-top: 40px;
+  }
+  .button-filter__default {
+    border: 1px solid #007A8D;
+    background: #FFF;
+    color: #007A8D;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 10px;
+    &:hover {
+      background: #007A8D;
+      color: #FFFFFF;
+    }
+  }
+  
+  .button-filter__all {
+    border-radius: 5px 0 0 5px;
+  }
+  .button-filter__first {
+    border-right: none;
+    border-left: none;
+  }
+  
+  .button-filter__second {
+    border-radius: 0 5px 5px 0;
+  }
+  
+  .button-filter__default--active {
+    background: #007A8D;
+    color: #FFF;
+  }
+}

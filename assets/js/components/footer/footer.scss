@@ -47,6 +47,13 @@ footer {
     font-weight: 600;
     font-size: 18px;
   }
+  .footer-container-one__email--space-grid {
+    grid-template-columns: 1fr 4fr;
+  }
+  .footer-container-one__central--space-grid {
+    grid-template-columns: 1fr 5fr;
+  }
+  
   .footer__grid-icon {
     font-size: 40px;
   }

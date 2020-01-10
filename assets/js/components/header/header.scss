@@ -11,7 +11,7 @@ header {
   }
   
   .header__one {
-    background: #FFF;
+    background: #FBFBFB;
   }
   
   .header__two {
@@ -22,15 +22,15 @@ header {
   .header__container-one {
     width: 1170px;
     display: flex;
-    height: 70px;
+    height: 90px;
     justify-content: space-between;
   }
   .header__how-it-works {
-    background: #FBFBFB;
     display: flex;
     align-items: center;
     padding: 0 30px 0 0;
-    border-right: 3px solid #FBFBFB;
+    border-right: 5px solid #dcdcdc;
+    margin: 15px;
   
   }
   .header__how-it-works--text {
@@ -50,14 +50,17 @@ header {
   .header__phone {
     padding:  0 0 0 30px;
     display: grid;
-    grid-template-columns: 1fr 3fr;
-    grid-template-rows: 1fr 1fr;
+    grid-template-columns: 1fr 5fr;
+    grid-template-rows: 22px 22px;
     align-items: center;
+    align-content: center;
+    position: relative;
+    left: -134px;
   }
   
   .header__phone--icon {
     grid-row-start: 1;
-    grid-row-end: 4;
+    grid-row-end: 3;
     font-size: 40px;
     color: #0FA866;
   }
@@ -81,6 +84,9 @@ header {
   .header__logo {
     display: flex;
     flex-flow: column;
+    justify-content: center;
+    position: relative;
+    left: -176px;
   }
   .header__logo--text-one, .header__logo--text-two {
     font-size: 35px;
