@@ -1,0 +1,26 @@
+pre-registration {
+  .pre-registration {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+  }
+  
+  .pre-registration__container {
+    width: 1170px;
+    min-height: 500px;
+  }
+  
+  .pre-registration__header--title {
+    font-size: 30px;
+    font-weight: 600;
+    color: #1F2D30;
+    margin-bottom: 10px;
+  }
+  
+  .pre-registration__header--text {
+    font-size: 14px;
+    font-weight: 400;
+    color: #1F2D30;
+  }
+  
+}

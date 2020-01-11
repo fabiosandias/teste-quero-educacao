@@ -1,5 +1,5 @@
 'use strict';
-import data from './data';
+
 require('angular')
     .module('queroEducacao')
     .component('favorites', {

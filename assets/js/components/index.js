@@ -6,3 +6,5 @@ require('./footer');
 require('./favorites');
 require('./buttons-filter');
 require('./travel-bags-card');
+require('./home');
+require('./pre-registration');
