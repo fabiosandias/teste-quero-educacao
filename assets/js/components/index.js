@@ -5,4 +5,4 @@ require('./breadcrumbs');
 require('./footer');
 require('./favorites');
 require('./buttons-filter');
-require('./add-to-favorites-button');
+require('./travel-bags-card');

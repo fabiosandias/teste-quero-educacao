@@ -22,4 +22,29 @@ favorites {
     color: #1F2D30;
   }
   
+  .favorites__content {
+    margin-top: 30px;
+  }
+  
+  .favorites__content-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-gap: 27px;
+    &.favorites__content-list-loading {
+      grid-template-columns: 1fr;
+    }
+  }
+  
+  .favorites__content-list-loading-text {
+    height: 400px;
+    text-align: center;
+    align-content: center;
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+    font-size: 30px;
+    align-items: center;
+    
+  }
+  
 }

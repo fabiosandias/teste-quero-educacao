@@ -2,12 +2,14 @@
 
 require('angular')
     .module('queroEducacao')
-    .component('addToFavoritesButton', {
+    .component('travelBagsCard', {
         bindings: {
+            isButton: "=",
+            scholarship: "="
         },
         controllerAs: 'vm',
-        template: require('./add-to-favorites-button.html'),
-        controller: class AddToFavoritesButton {
+        template: require('./travel-bags-card.html'),
+        controller: class TravelBagsCard {
 
             constructor() {
                 'ngInject';

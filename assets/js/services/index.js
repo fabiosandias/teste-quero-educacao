@@ -1,13 +1,11 @@
 'use strict';
-import Enums from './Enums';
-import TaskService from './TaskService';
-import UuidService from './UuidService';
+import ScholarshipsService from './scholarshipsService';
+import ScholarshipsFactory from './ScholarshipsFactory';
 
 require('angular')
     .module('queroEducacao')
-    .service('Enums', Enums)
-    .service('TaskService', TaskService)
-    .service('UuidService', UuidService);
+    .service('ScholarshipsService', ScholarshipsService)
+    .factory('ScholarshipsFactory', ScholarshipsFactory);
 
 
 

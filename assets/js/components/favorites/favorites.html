@@ -5,13 +5,33 @@
 			<p class="favorites__header--text">Adicione bolsas de cursos e faculdade do seu interesse e receba atualizações com as melhores ofertas diponíveis.</p>
 		</div>
 		
-		<buttons-filter></buttons-filter>
+		<buttons-filter
+			filter-by-semester-second="vm.filterBySemester(dates)"
+			filter-by-semester-first="vm.filterBySemester(dates)"
+			show-all="vm.showAll()"
+		></buttons-filter>
 		
 		<div class="favorites__content">
-			<div class="favorites__content-button-add">
-				<add-to-favorites-button> </add-to-favorites-button>
+			<div class="favorites__content-list"
+				ng-class="{'favorites__content-list-loading' :  vm.loading}"
+			>
+				
+				<div ng-if="vm.loading" class="favorites__content-list-loading-text">
+					<p>Por favor aguarde, estamos buscando os dados dos cursos...</p>
+				</div>
+				<travel-bags-card
+					is-button="true"
+					ng-if="!vm.loading"
+				>
+				</travel-bags-card>
+				<travel-bags-card
+					ng-if="!vm.loading"
+					ng-repeat="scholarship in vm.scholarships track by $index"
+					is-button="false"
+					scholarship="scholarship"
+				>
+				</travel-bags-card>
 			</div>
-			<div class="favorites__content-list"></div>
 		</div>
 	</div>
 </div>

@@ -1,0 +1,48 @@
+<div class="travel-bags-card" ng-if="vm.isButton">
+<button type="button" class="travel-bags-card__button">
+	<span class="travel-bags-card__icon"><i class="fa fa-plus-circle"></i></span>
+	<span class="travel-bags-card__title">Adicionar bolsa</span>
+	<span class="travel-bags-card__text">Clique aqui para adicionar bolsa de curso do seu interesse</span>
+</button>
+</div>
+
+<div class="travel-bags-card travel-bags-card-two" ng-if="!vm.isButton">
+	<div class="travel-bags-card__logo">
+		<img class="travel-bags-card__logo--img" ng-src="{{vm.scholarship.university.logo_url}}" alt="">
+	</div>
+	<div class="travel-bags-card__university">
+		<p>{{vm.scholarship.university.name}}</p>
+	</div>
+	<div class="travel-bags-card__course-name">
+		<p>{{vm.scholarship.course.name}}</p>
+	</div>
+	<div class="travel-bags-card__course-score">
+		<p>{{vm.scholarship.university.score}}</p>
+	</div>
+	<div class="travel-bags-card__course-kind-shift">
+		<p>{{vm.scholarship.course.kind}} . {{vm.scholarship.course.shift}}</p>
+	</div>
+	<div class="travel-bags-card__start_date">
+		<p>Inicio das aulas em: {{vm.scholarship.start_date}}</p>
+	</div>
+	<div class="travel-bags-card__monthly-payment">
+		<div class="travel-bags-card__monthly-payment-title">
+			<p>Mensalidade com o Quero Bolsa:</p>
+		</div>
+		<div class="travel-bags-card__full_price">
+			<p>{{vm.scholarship.full_price | currency:'R$ '}}</p>
+		</div>
+		<div class="travel-bags-card__price_with_discount">
+			<p>{{vm.scholarship.price_with_discount | currency:'R$ ' }} <span class="travel-bags-card__price_with_discount--month">/mês</span></p>
+		</div>
+	</div>
+	<div class="travel-bags-card__buttons">
+		<button type="button" class="travel-bags-card__buttons--delete">Excluir</button>
+		<button
+			ng-if="vm.scholarship.enabled"
+			type="button" class="travel-bags-card__buttons--see-offer">Ver oferta</button>
+		<button
+			ng-if="!vm.scholarship.enabled"
+			type="button" disabled class="travel-bags-card__buttons--unavailable">Indisponível</button>
+	</div>
+</div>
