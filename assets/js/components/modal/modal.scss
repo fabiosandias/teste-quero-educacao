@@ -1,0 +1,214 @@
+modal {
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 100;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  
+  .modal {
+    overflow: hidden;
+    width: 600px;
+    min-height: 605px;
+    max-height: 790px;
+    margin: 0 auto;
+    z-index: 1000;
+    display: flex;
+    flex-flow: column;
+    
+  }
+  
+  .modal__button-close {
+    height: 40px;
+    background: transparent;
+    display: flex;
+    flex-direction: row-reverse;
+  }
+  
+  .modal__button-close--btn {
+    border: none;
+    background: none;
+    color: #FFFFFF;
+    font-size: 30px;
+  }
+  
+  .modal__container {
+    min-height: 610px;
+    max-height: 700px;
+    background: #FFFFFF;
+    padding: 30px;
+  }
+  
+  .modal__header--title {
+    font-size: 20px;
+    font-weight: 600;
+    color: #1F2D30;
+    margin-bottom: 10px;
+  }
+  
+  .modal__header--text {
+    font-size: 12px;
+    font-weight: 400;
+    color: #1F2D30;
+  }
+  
+  .modal__content-form {
+    margin-top: 30px;
+    height: 45px;
+  }
+  .modal__form {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 15px;
+    
+    
+  }
+  
+  .modal__form--label {
+    font-size: 11px;
+    font-weight: 700;
+    color: #1F2D30;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+    display: block;
+  }
+  .modal__form-field, .modal__form-field-select {
+    border: 1px solid #dcdcdc;
+    width: 100%;
+    font-size: 16px;
+    font-weight: 400;
+    color: #1F2D30;
+    background: #FFFFFF;
+  }
+  .modal__form-field {
+    height: 35px;
+  }
+  .modal__form-field-select {
+    height: 39px;
+  }
+  
+  .modal__form-group-checkbox {
+    display: grid;
+    grid-template-columns: 2fr 12fr;
+    grid-template-rows: 1fr;
+  }
+  
+  .modal__form-field-checkbox {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+  }
+  
+  .modal__form-group-collection {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+    margin-top: 15px;
+    
+  }
+  
+  
+  /* Create a custom checkbox */
+  .modal_form-checkbox-checked {
+    position: relative;
+    top: 0;
+    left: 0;
+    height: 15px;
+    width: 15px;
+    background-color: #eee;
+  }
+  
+  /* On mouse-over, add a grey background color */
+  .modal__form-field-checkbox:hover ~ .modal_form-checkbox-checked {
+    background-color: #ccc;
+  }
+  
+  /* When the checkbox is checked, add a blue background */
+  .modal__form-field-checkbox:checked ~ .modal_form-checkbox-checked {
+    background-color: #2196F3;
+  }
+  
+  /* Create the modal_form-checkbox-checked/indicator (hidden when not checked) */
+  .modal_form-checkbox-checked:after {
+    content: "";
+    position: absolute;
+    display: none;
+  }
+  
+  /* Show the modal_form-checkbox-checked when checked */
+  .modal__form-field-checkbox:checked ~ .modal_form-checkbox-checked:after {
+    display: block;
+  }
+  
+  /* Style the modal_form-checkbox-checked/indicator */
+  .modal__form-field-checkbox .modal_form-checkbox-checked:after {
+    left: 9px;
+    top: 5px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+  }
+  
+  
+  
+  .modal__search-result-header {
+    display: grid;
+    grid-template-columns: 1fr 6fr;
+    grid-template-rows: 1fr;
+    border-bottom: 1px solid #DCDCDC;
+    padding-bottom: 20px;
+    margin-top: 30px;
+  }
+  
+  .modal__search-result-content {
+    overflow-y: auto;
+    height: 372px;
+  }
+  
+  .modal__search-result-title--text {
+    font-weight: 700;
+    font-size: 12px;
+    color: #1F2D30;
+    
+  }
+  
+  .modal__search-result-filter {
+    text-align: right;
+  }
+  .modal__search-result-filter--text, .modal__search-result-filter--button {
+    font-size: 12px;
+  }
+  .modal__search-result-filter--text {
+    color: #1F2D30;
+  }
+  .modal__search-result-filter--button {
+    background: none;
+    border: none;
+    color: #0FA866;
+    font-weight: 700;
+  }
+  
+  .modal__footer {
+    background: #FFFFFF;
+    border-top: 1px solid #DCDCDC;
+    padding: 20px 30px 20px 0;
+    text-align: right;
+  }
+  
+  .modal__search-result-content {
+    overflow-y: auto;
+    max-height: 400px;
+  }
+  
+}

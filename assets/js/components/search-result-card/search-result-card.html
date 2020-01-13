@@ -1,0 +1,25 @@
+<label for="course_{{vm.index}}">
+	<div class="search-result-card" >
+		<div class="search-result-card__check">
+			<input type="checkbox"
+				   ng-model="vm.favorites[vm.index]"
+				   id="course_{{vm.index}}"
+				   name="favoritesCourse[]"
+				   value="{{vm.course}}"
+				   ng-click="vm.setMyFavorites(vm.course)"
+			>
+		</div>
+		<div class="search-result-card__logo">
+			<span><img class="search-result-card__logo--img" ng-src="{{vm.course.university.logo_url}}" alt=""></span>
+		</div>
+		<div class="search-result-card__type">
+			<p class="search-result-card__type--text-one">{{vm.course.course.name}}</p>
+			<p class="search-result-card__type--text-two">{{vm.course.course.level}}</p>
+		</div>
+		<div class="search-result-card__price">
+			<p class="search-result-card__price-discount">Bolsa de <span class="search-result-card__price-discount--span">{{vm.course.discount_percentage}}%</span></p>
+			<p class="search-result-card__price-text">{{vm.course.price_with_discount | currency:'R$ ' }}/mês</p>
+		</div>
+	</div>
+	
+</label>

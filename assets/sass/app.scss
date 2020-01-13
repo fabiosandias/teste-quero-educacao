@@ -11,3 +11,30 @@ body {
     
 }
 
+.btn-yellow {
+    border: 1px solid #d1a80f;
+    color: #1F2D30;
+    background: #FDCB13;
+}
+.btn-green {
+    border: 1px solid #18ACC4;
+    color: #18ACC4;
+    background: #FFFFFF;
+}
+
+.btn-grey {
+    border: 1px solid #717171;
+    color: #717171;
+    background: #969696;
+}
+
+.btn-yellow, .btn-green, .btn-grey {
+    border-radius: 5px;
+    font-size: 15px;
+    font-weight: 700;
+    padding: 10px 17px;
+}
+
+.modal-open {
+    overflow: hidden;
+}

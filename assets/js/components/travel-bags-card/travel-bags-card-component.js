@@ -5,19 +5,18 @@ require('angular')
     .component('travelBagsCard', {
         bindings: {
             isButton: "=",
-            scholarship: "="
+            scholarship: "=",
+            add: "&",
+            deleteFavoriteCourse: "&"
         },
         controllerAs: 'vm',
         template: require('./travel-bags-card.html'),
         controller: class TravelBagsCard {
 
-            constructor() {
+            constructor(CourseService) {
                 'ngInject';
-            }
 
-            $onInit() {
-
-
+                this.CourseService = CourseService;
             }
         }
     });

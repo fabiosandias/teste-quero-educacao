@@ -22,16 +22,24 @@
 				<travel-bags-card
 					is-button="true"
 					ng-if="!vm.loading"
+					add="vm.addFavorites()"
 				>
 				</travel-bags-card>
 				<travel-bags-card
 					ng-if="!vm.loading"
-					ng-repeat="scholarship in vm.scholarships track by $index"
+					ng-repeat="scholarship in vm.myFovorites track by $index"
 					is-button="false"
 					scholarship="scholarship"
+					delete-favorite-course="vm.deleteFavoriteCourse(uuid)"
 				>
 				</travel-bags-card>
 			</div>
 		</div>
 	</div>
 </div>
+<modal
+	ng-show="vm.modalOpen"
+	courses="vm.scholarships"
+	modal-open="vm.showAndHideModal()"
+	add="vm.addFavorites(courses)"
+></modal>

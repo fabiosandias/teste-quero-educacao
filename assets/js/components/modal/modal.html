@@ -1,0 +1,134 @@
+<div class="modal">
+	<div class="modal__button-close">
+		<button
+			type="button"
+			class="modal__button-close--btn"
+			ng-click="vm.modalOpen()"
+		>
+			<i class="fa fa-times"></i>
+		</button>
+	</div>
+	<div class="modal__container">
+		<div class="modal__header">
+			<h1 class="modal__header--title">Adicionar bolsa</h1>
+			<p class="modal__header--text">Filter e adicione as bolsa de seu interesse.</p>
+		</div>
+		
+		<div class="modal__content-form">
+			<div class="modal__form">
+				<div class="modal__form-group" >
+					<label for="city" class="modal__form--label">selecione sua cidade</label>
+					<input
+						id="city"
+						ng-keypress="vm.filterAll()"
+						name="city"
+						ng-model-options="{ allowInvalid: true, debounce: 500 }"
+						class="modal__form-field"
+						ng-model="vm.search.city" type="text">
+				</div>
+				<div class="modal__form-group">
+					<label for="course-type" class="modal__form--label">selecione o curso de sua preferência</label>
+					<select
+						id="course-type"
+						name="courseType"
+						ng-model="vm.search.type"
+						class="modal__form-field-select"
+						ng-options="f.value as f.label for f in vm.option track by f.value"
+						ng-change="vm.filterByCourse(vm.search.type)"
+					>
+					
+					</select>
+				</div>
+				<div class="modal__form-group">
+					<label for="city" class="modal__form--label">como você quer estudar?</label>
+					<div class="modal__form-group-collection">
+						<div class="modal__form-group-checkbox">
+							<input
+								id="presential"
+								name="modality"
+								value="Presencial"
+								ng-model="vm.search.Presencial"
+								type="checkbox"
+								class="modal__form-field-checkbox"
+								ng-change="vm.filterModality('Presencial')"
+							>
+							<span id="presential" class="modal_form-checkbox-checked"></span>
+							<label for="presential">
+								Presencial
+							</label>
+						
+						</div>
+						<div class="modal__form-group-checkbox">
+							<input
+								id="distance"
+								value="EaD"
+								name="modality"
+								ng-model="vm.search.ead"
+								type="checkbox"
+								class="modal__form-field-checkbox"
+								ng-change="vm.filterModality('EaD')"
+							>
+							<span id="distance" class="modal_form-checkbox-checked"></span>
+							<label for="distance">
+								A distância
+							</label>
+						</div>
+					</div>
+				</div>
+				<div class="modal__form-group">
+					<label for="price" class="modal__form--label">selecione sua cidade</label>
+					<input
+						id="price"
+						name="price"
+						ng-model="vm.search.price"
+						type="text"
+						class="modal__form-field"
+					>
+				</div>
+			</div>
+			<div class="modal__search-result">
+				<div class="modal__search-result-header">
+					<div class="modal__search-result-title">
+						<span class="modal__search-result-title--text">Resultado</span>
+					</div>
+					<div class="modal__search-result-filter">
+						<span class="modal__search-result-filter--text">Ordenar por
+							<button
+								type="button"
+								class="modal__search-result-filter--button"
+								ng-click="vm.sortUniversityName()"
+							>
+								Nome da faculdade <i class="fa fa-angle-down"></i>
+							</button></span>
+					</div>
+				</div>
+				
+				
+				<div class="modal__search-result-content">
+					<search-result-card
+						ng-repeat="course in vm.courses track by $index"
+						course="course"
+						my-favorites="vm.myFavorites"
+						favorites="vm.favorites"
+						index="$index"
+						uuid="course.uuid"
+						
+					>
+					</search-result-card>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="modal__footer">
+		<button type="button" class="btn-green modal__footer-cancel" ng-click="vm.modalOpen();">Cancelar</button>
+		<button
+			type="button"
+			class="btn-grey modal__footer-add"
+			ng-class="{'btn-grey' : !vm.enabledButton(), 'btn-yellow' : vm.enabledButton()}"
+			ng-click="vm.add({courses: {courses: vm.myFavorites}}); vm.clearMyFavorites()"
+			ng-disabled="!vm.enabledButton()"
+		>
+			Adicionar bolsa(s)
+		</button>
+	</div>
+</div>

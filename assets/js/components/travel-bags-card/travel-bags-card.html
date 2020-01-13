@@ -1,5 +1,5 @@
 <div class="travel-bags-card" ng-if="vm.isButton">
-<button type="button" class="travel-bags-card__button">
+<button type="button" class="travel-bags-card__button" ng-click="vm.add()">
 	<span class="travel-bags-card__icon"><i class="fa fa-plus-circle"></i></span>
 	<span class="travel-bags-card__title">Adicionar bolsa</span>
 	<span class="travel-bags-card__text">Clique aqui para adicionar bolsa de curso do seu interesse</span>
@@ -37,12 +37,12 @@
 		</div>
 	</div>
 	<div class="travel-bags-card__buttons">
-		<button type="button" class="travel-bags-card__buttons--delete">Excluir</button>
+		<button type="button" class="btn-green" ng-click="vm.deleteFavoriteCourse({uuid: vm.scholarship.uuid})">Excluir</button>
 		<button
 			ng-if="vm.scholarship.enabled"
-			type="button" class="travel-bags-card__buttons--see-offer">Ver oferta</button>
+			type="button" class="btn-yellow">Ver oferta</button>
 		<button
 			ng-if="!vm.scholarship.enabled"
-			type="button" disabled class="travel-bags-card__buttons--unavailable">Indisponível</button>
+			type="button" disabled class="btn-grey">Indisponível</button>
 	</div>
 </div>
