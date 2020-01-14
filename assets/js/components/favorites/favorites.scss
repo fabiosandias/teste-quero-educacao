@@ -8,6 +8,9 @@ favorites {
   .favorites__container {
     width: 1170px;
   }
+  .favorites__header {
+    padding: 0 12px;
+  }
   
   .favorites__header--title {
     font-size: 30px;
@@ -31,6 +34,7 @@ favorites {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-gap: 27px;
+    padding: 0 12px;
     
     &.favorites__content-list-loading {
       grid-template-columns: 1fr;
