@@ -112,13 +112,12 @@
 				
 				<div class="modal__search-result-content">
 					<search-result-card
-						ng-repeat="course in vm.courses track by $index"
+						ng-repeat="course in vm.copyCourse track by $index"
 						course="course"
 						my-favorites="vm.myFavorites"
 						favorites="vm.favorites"
 						index="$index"
 						uuid="course.uuid"
-						
 					>
 					</search-result-card>
 				</div>

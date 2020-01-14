@@ -204,6 +204,7 @@ modal {
     border-top: 1px solid #DCDCDC;
     padding: 20px 30px 20px 0;
     text-align: right;
+    z-index: 100;
   }
   
   .modal__search-result-content {
@@ -241,6 +242,12 @@ modal {
       display: flex;
       flex-flow: column;
       
+    }
+    
+  
+    .modal__search-result-filter--button {
+      padding: 0;
+      text-align: right;
     }
   }
 }

@@ -21,10 +21,12 @@ require('angular')
             }
 
             $onInit() {
-                this.scholarships = [];
+
+                if (!this.scholarships)
+                    this.scholarships = [];
                 // window.localStorage.removeItem('ngStorage-myFavorites');
                 // window.localStorage.removeItem('ngStorage-searchResult');
-                this.updateMyFavorites();
+
                 this.loading = true;
 
                 this.scholarships =  this.CourseService.getSearchResult();
@@ -35,6 +37,7 @@ require('angular')
                 } else {
                     this.loading = false;
                 }
+                this.updateMyFavorites();
 
                 this.modalOpen = false;
                 this.$rootScope.modalOpen = this.modalOpen;
@@ -63,7 +66,6 @@ require('angular')
                 const sd = new Date(dates.startDate);
                 const ed = new Date(dates.endDate);
                 let dt = {};
-                this.scholarships = [];
 
                 this.myFovorites = this.myFovoritesCopy.filter((date) => {
                     dt = new Date(this.reverseDate(date.start_date));

@@ -28,9 +28,6 @@ require('angular')
                 this.myFavorites = [];
                 this.favorites = [];
 
-                if (!this.option) {
-                    this.option = [];
-                }
                 if (!this.copyCourse) {
                     this.copyCourse = this.courses;
                 }
@@ -65,7 +62,7 @@ require('angular')
                 this.search.price = undefined;
                 this.search.Presencial = undefined;
                 this.search.ead = undefined;
-                this.courses = this.copyCourse;
+                this.copyCourse = this.courses;
 
             }
 
@@ -90,7 +87,7 @@ require('angular')
             }
 
             filterAll() {
-                this.courses = this.copyCourse;
+                this.copyCourse = this.courses;
 
                 if (this.search.city) {
 
@@ -113,12 +110,12 @@ require('angular')
             filterByCity() {
                 if (!this.search.city)
                     return false;
-                this.courses = this.courses.filter(o =>
+                this.copyCourse = this.copyCourse.filter(o =>
                     Object.keys(o.campus).some(k => o.campus.city.toUpperCase().includes(this.search.city.toUpperCase())))
             }
 
             filterByModality() {
-                this.courses = this.courses.filter(o => {
+                this.copyCourse = this.copyCourse.filter(o => {
                     if (this.search.ead && this.search.Presencial) {
                         return o.course.kind.toUpperCase() === COURSE_MODALITY.PRESENTIAL.toUpperCase() && o.course.kind.toUpperCase() === COURSE_MODALITY.AED.toUpperCase()
                     }
@@ -135,16 +132,16 @@ require('angular')
 
             filterByPrice() {
                 const value = this.search.price.split('|');
-                this.courses = this.courses.filter(o => o.price_with_discount >= parseFloat(value[0]) && o.price_with_discount <= parseFloat(value[1]));
+                this.copyCourse = this.copyCourse.filter(o => o.price_with_discount >= parseFloat(value[0]) && o.price_with_discount <= parseFloat(value[1]));
             }
 
             filterByCourse() {
-                this.courses = this.courses.filter(o => o.course.name.toUpperCase() === this.search.type.toUpperCase());
+                this.copyCourse = this.copyCourse.filter(o => o.course.name.toUpperCase() === this.search.type.toUpperCase());
             }
 
 
             createOptionCourse() {
-                this.option = this.copyCourse.map((course, i) => {
+                this.option = this.courses.map((course, i) => {
                   return {id: i + 1, value: course.course.name, label: course.course.name}
                 },[]);
             }
