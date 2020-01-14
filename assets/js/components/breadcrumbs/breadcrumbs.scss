@@ -20,17 +20,19 @@ breadcrumbs {
     &:first-child::before {
       content: none;
     }
+    
     &::before {
       padding: 0 5px;
       color: #ccc;
       content: "/\00a0";
-  }
+    }
     
     .breadcrumbs__ul-item--link {
       color: #18ACC4;
       font-weight: 700;
       font-size: 13px;
       text-decoration: none;
+      
       &:hover {
         color: #007A8D;
       }
@@ -41,6 +43,45 @@ breadcrumbs {
       font-weight: 400;
       font-size: 13px;
       text-decoration: none;
+    }
+  }
+  
+  
+  @media screen and (min-width: 769px) {
+    .hidden-desktop {
+      display: none;
+    }
+  }
+  
+  
+  @media screen and (max-width: 768px) {
+    .hidden-mb {
+      display: none;
+    }
+    .hidden-desktop {
+      display: block;
+    }
+    .breadcrumbs {
+      display: block;
+    }
+    .breadcrumbs__ul-item {
+      padding: 17px;
+      font-size: 27px;
+    }
+    .breadcrumbs__container {
+      width: 100%;
+    }
+    
+    .breadcrumbs__ul-item--link {
+      display: inline-flex;
+    }
+  
+    .breadcrumbs__ul-item {
+      &::before {
+        padding: 0 5px;
+        color: #ccc;
+        content: none;
+      }
     }
   }
 }

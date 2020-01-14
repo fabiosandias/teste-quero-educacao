@@ -4,6 +4,7 @@ buttons-filter {
     flex-direction: row-reverse;
     margin-top: 40px;
   }
+  
   .button-filter__default {
     border: 1px solid #007A8D;
     background: #FFF;
@@ -12,6 +13,7 @@ buttons-filter {
     font-weight: 600;
     padding: 10px;
     cursor: pointer;
+    
     &:hover {
       background: #007A8D;
       color: #FFFFFF;
@@ -21,6 +23,7 @@ buttons-filter {
   .button-filter__all {
     border-radius: 5px 0 0 5px;
   }
+  
   .button-filter__first {
     border-right: none;
     border-left: none;
@@ -33,5 +36,27 @@ buttons-filter {
   .button-filter__default--active {
     background: #007A8D;
     color: #FFF;
+  }
+  
+  @media screen and (max-width: 768px) {
+    .button-filter {
+      flex-flow: column;
+      padding: 0;
+    }
+  
+    .button-filter__all {
+      border-radius: 0 0 5px 5px;
+    }
+  
+    .button-filter__first {
+      border-right: 1px solid #007A8D;
+      border-left: 1px solid #007A8D;
+      border-bottom: none;
+      border-top: none;
+    }
+  
+    .button-filter__second {
+      border-radius: 5px 5px 0 0;
+    }
   }
 }

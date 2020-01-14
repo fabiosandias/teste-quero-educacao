@@ -3,7 +3,7 @@
 		<button
 			type="button"
 			class="modal__button-close--btn"
-			ng-click="vm.modalOpen()"
+			ng-click="vm.modalOpen(); vm.clearMyFavorites()"
 		>
 			<i class="fa fa-times"></i>
 		</button>
@@ -16,13 +16,12 @@
 		
 		<div class="modal__content-form">
 			<div class="modal__form">
-				<div class="modal__form-group" >
+				<div class="modal__form-group" ng-model-options="{ allowInvalid: true, debounce: 500 }">
 					<label for="city" class="modal__form--label">selecione sua cidade</label>
 					<input
 						id="city"
-						ng-keypress="vm.filterAll()"
+						ng-keyup="vm.filterAll($event)"
 						name="city"
-						ng-model-options="{ allowInvalid: true, debounce: 500 }"
 						class="modal__form-field"
 						ng-model="vm.search.city" type="text">
 				</div>
@@ -34,8 +33,9 @@
 						ng-model="vm.search.type"
 						class="modal__form-field-select"
 						ng-options="f.value as f.label for f in vm.option track by f.value"
-						ng-change="vm.filterByCourse(vm.search.type)"
+						ng-change="vm.filterAll($event)"
 					>
+						<option value="" >Selecione um curso</option>
 					
 					</select>
 				</div>
@@ -50,7 +50,7 @@
 								ng-model="vm.search.Presencial"
 								type="checkbox"
 								class="modal__form-field-checkbox"
-								ng-change="vm.filterModality('Presencial')"
+								ng-change="vm.filterAll($event)"
 							>
 							<span id="presential" class="modal_form-checkbox-checked"></span>
 							<label for="presential">
@@ -66,7 +66,7 @@
 								ng-model="vm.search.ead"
 								type="checkbox"
 								class="modal__form-field-checkbox"
-								ng-change="vm.filterModality('EaD')"
+								ng-change="vm.filterAll($event)"
 							>
 							<span id="distance" class="modal_form-checkbox-checked"></span>
 							<label for="distance">
@@ -76,14 +76,18 @@
 					</div>
 				</div>
 				<div class="modal__form-group">
-					<label for="price" class="modal__form--label">selecione sua cidade</label>
-					<input
-						id="price"
-						name="price"
+					<label for="course-type" class="modal__form--label">até quando você pode pagar?</label>
+					<select
+						id="course-price"
+						name="coursePrice"
 						ng-model="vm.search.price"
-						type="text"
-						class="modal__form-field"
+						class="modal__form-field-select"
+						ng-options="f.value as f.label for f in vm.optionCoursePrice track by f.value"
+						ng-change="vm.filterAll($event)"
 					>
+						<option value="" >Selecione o valor do curso</option>
+					
+					</select>
 				</div>
 			</div>
 			<div class="modal__search-result">
@@ -92,14 +96,16 @@
 						<span class="modal__search-result-title--text">Resultado</span>
 					</div>
 					<div class="modal__search-result-filter">
-						<span class="modal__search-result-filter--text">Ordenar por
+						<span class="modal__search-result-filter--text">
+							<span>Ordenar por</span>
 							<button
 								type="button"
 								class="modal__search-result-filter--button"
 								ng-click="vm.sortUniversityName()"
 							>
 								Nome da faculdade <i class="fa fa-angle-down"></i>
-							</button></span>
+							</button>
+						</span>
 					</div>
 				</div>
 				
@@ -120,7 +126,7 @@
 		</div>
 	</div>
 	<div class="modal__footer">
-		<button type="button" class="btn-green modal__footer-cancel" ng-click="vm.modalOpen();">Cancelar</button>
+		<button type="button" class="btn-green modal__footer-cancel" ng-click="vm.modalOpen(); vm.clearMyFavorites()">Cancelar</button>
 		<button
 			type="button"
 			class="btn-grey modal__footer-add"

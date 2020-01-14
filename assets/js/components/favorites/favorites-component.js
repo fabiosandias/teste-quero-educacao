@@ -26,6 +26,7 @@ require('angular')
                 // window.localStorage.removeItem('ngStorage-searchResult');
                 this.updateMyFavorites();
                 this.loading = true;
+
                 this.scholarships =  this.CourseService.getSearchResult();
                 this.copyScholarships = this.scholarships;
 

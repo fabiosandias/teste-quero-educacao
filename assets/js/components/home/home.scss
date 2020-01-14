@@ -23,4 +23,17 @@ home {
     color: #1F2D30;
   }
   
+  @media screen and (max-width: 768px) {
+    .home {
+      display: block;
+      padding: 0 14px;
+    }
+  
+    .home__container {
+      width: 100%;
+      min-height: 200px;
+      display: flex;
+    }
+  }
+  
 }

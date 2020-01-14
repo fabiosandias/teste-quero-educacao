@@ -3,10 +3,12 @@
 		<div class="header__container-one">
 			<div class="header__how-it-works">
 				<div class="header__how-it-works--text header-font-default">
-					<i class="fa fa-exclamation-circle header__how-it-works--icon"></i> Como funciona
+					<i class="fa fa-exclamation-circle header__how-it-works--icon"></i>
+					<span class="header__how-it-works--text-desk">Como funciona</span>
+					<span class="header__how-it-works--text-mb">Ajuda</span>
 				</div>
 			</div>
-			<div class="header__phone">
+			<div class="header__phone hidden-mb">
 				<div class="header__phone--icon"><i class="fa fa-whatsapp"></i></div>
 				<div class="header__phone--number">0800 123 2222</div>
 					<div class="header__phone--text">Envie mensagem ou ligue</div>
@@ -17,7 +19,7 @@
 			</div>
 			<div class="header__name-icon">
 				<div class="header__name-icon--text header-font-default">
-					Fabio Santos Dias <i class="fa fa-user header__name-icon--icon"></i>
+					<span class="hidden-mb">Fabio Santos Dias </span> <i class="fa fa-user header__name-icon--icon"></i> <span class="hidden-desktop">Conta</span>
 				</div>
 			</div>
 		</div>
@@ -30,22 +32,22 @@
 						class="header__menu-ul-item"
 					>
 						<a
-							ui-sref="welcome.home"
+							ui-sref="welcome.favorites"
 							class="header__menu-ul-item--link"
 						>
 							Minha conta
 						</a>
 					</li>
-					<li class="header__menu-ul-item">
+					<li class="header__menu-ul-item hidden-mb">
 						<a
-							ui-sref="welcome.prePegistration"
+							href=""
 						   class="header__menu-ul-item--link"
 						>
 							Pre-matrículas
 						</a>
 					</li>
 					<li
-						class="header__menu-ul-item header__menu-ul-item--active"
+						class="header__menu-ul-item header__menu-ul-item--active item hidden-mb"
 					>
 						<a
 							ui-sref="welcome.favorites"
@@ -55,6 +57,10 @@
 						</a>
 					</li>
 				</ul>
+				
+				<div class="header__menu-ul-mb hidden-desktop">
+					<button type="button" class="header__menu-ul-mb-btn" >Menu &nbsp;&nbsp;<i class="fa fa-angle-down header__menu-ul-mb-btn--icon"></i></button>
+				</div>
 			</div>
 		</div>
 	</div>

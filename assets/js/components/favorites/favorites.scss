@@ -24,12 +24,14 @@ favorites {
   
   .favorites__content {
     margin-top: 30px;
+    padding-bottom: 20px;
   }
   
   .favorites__content-list {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-gap: 27px;
+    
     &.favorites__content-list-loading {
       grid-template-columns: 1fr;
     }
@@ -44,6 +46,24 @@ favorites {
     justify-items: center;
     font-size: 30px;
     align-items: center;
+    
+  }
+  
+  @media screen and (max-width: 768px) {
+    .favorites {
+      padding: 0 20px;
+    }
+    .favorites__container {
+      width: 100%;
+    }
+    
+    .favorites__header {
+      padding: 0;
+    }
+    
+    .favorites__content-list {
+      grid-template-columns: 1fr;
+    }
     
   }
   

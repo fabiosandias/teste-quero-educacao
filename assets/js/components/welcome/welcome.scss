@@ -3,3 +3,9 @@
   grid-template-columns: 1fr;
   grid-template-rows: 130px 70px auto 300px;
 }
+
+@media screen and (max-width: 768px) {
+  .container-general {
+    display: initial;
+  }
+}

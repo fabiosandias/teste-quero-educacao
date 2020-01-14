@@ -1,4 +1,10 @@
 'use strict';
+
+const COURSE_MODALITY = {
+    AED: 'EaD',
+    PRESENTIAL: 'Presencial',
+};
+
 require('angular')
     .module('queroEducacao')
     .component('modal', {
@@ -21,16 +27,46 @@ require('angular')
                 this.search.city = '';
                 this.myFavorites = [];
                 this.favorites = [];
-                this.option = [];
-                this.copyCourse = this.courses;
+
+                if (!this.option) {
+                    this.option = [];
+                }
+                if (!this.copyCourse) {
+                    this.copyCourse = this.courses;
+                }
 
 
                 this.createOptionCourse();
+
+                this.optionCoursePrice = [
+                    {id: 1, value: '50.0 | 200.0', label: 'de R$50,00 a R$ 200,00'},
+                    {id: 1, value: '200.0 | 500.0', label: 'de R$200,00 a R$ 500,00'},
+                    {id: 1, value: '500.0 | 1000.0', label: 'de R$500,00 a R$ 1.000,00'},
+                    {id: 1, value: '1000.0 | 1500.0', label: 'de R$1.000,00 a R$ 1.500,00'},
+                    {id: 1, value: '1500.0 | 2000.0', label: 'de R$1.500,00 a R$ 2.000,00'},
+                    {id: 1, value: '2500.0 | 3000.0', label: 'de R$2.500,00 a R$ 3.000,00'},
+                    {id: 1, value: '3000.0 | 4000.0', label: 'de R$3.000,00 a R$ 4.000,00'},
+                    {id: 1, value: '4000.0 | 5000.0', label: 'de R$4.000,00 a R$ 5.000,00'},
+                    {id: 1, value: '5000.0 | 6000.0', label: 'de R$5.000,00 a R$ 6.000,00'},
+                    {id: 1, value: '6000.0 | 7000.0', label: 'de R$6.000,00 a R$ 7.000,00'},
+                    {id: 1, value: '7000.0 | 8000.0', label: 'de R$7.000,00 a R$ 8.000,00'},
+                    {id: 1, value: '8000.0 | 9000.0', label: 'de R$8.000,00 a R$ 9.000,00'},
+                    {id: 1, value: '9000.0 | 10000.0', label: 'de R$9.000,00 a R$ 10.000,00'},
+                ];
             }
+
+
 
             clearMyFavorites() {
                 this.myFavorites = [];
                 this.favorites = [];
+                this.search.type = undefined;
+                this.search.city = undefined;
+                this.search.price = undefined;
+                this.search.Presencial = undefined;
+                this.search.ead = undefined;
+                this.courses = this.copyCourse;
+
             }
 
             enabledButton() {
@@ -54,19 +90,56 @@ require('angular')
             }
 
             filterAll() {
-                if (!this.search.city) {
-                    this.courses = this.copyCourse;
+                this.courses = this.copyCourse;
+
+                if (this.search.city) {
+
+                    this.filterByCity();
                 }
-                this.courses = this.copyCourse.filter(o =>
-                    Object.keys(o.campus).some(k => o.campus.city.toUpperCase().includes(this.search.city.toUpperCase())));
+
+                if (this.search.type) {
+                    this.filterByCourse();
+                }
+
+                if (this.search.ead || this.search.Presencial) {
+                    this.filterByModality();
+                }
+                if (this.search.price) {
+                    this.filterByPrice();
+                }
+
             }
 
-            filterModality(modality) {
-                this.courses = this.copyCourse.filter(o => o.course.kind.toUpperCase() === modality.toUpperCase());
+            filterByCity() {
+                if (!this.search.city)
+                    return false;
+                this.courses = this.courses.filter(o =>
+                    Object.keys(o.campus).some(k => o.campus.city.toUpperCase().includes(this.search.city.toUpperCase())))
             }
 
-            filterByCourse(course) {
-                this.courses = this.copyCourse.filter(o => o.course.name.toUpperCase() === course.toUpperCase());
+            filterByModality() {
+                this.courses = this.courses.filter(o => {
+                    if (this.search.ead && this.search.Presencial) {
+                        return o.course.kind.toUpperCase() === COURSE_MODALITY.PRESENTIAL.toUpperCase() && o.course.kind.toUpperCase() === COURSE_MODALITY.AED.toUpperCase()
+                    }
+
+                    if (!this.search.ead && this.search.Presencial) {
+                        return o.course.kind.toUpperCase() === COURSE_MODALITY.PRESENTIAL.toUpperCase();
+                    }
+
+                    if (this.search.ead && !this.search.Presencial) {
+                        return o.course.kind.toUpperCase() === COURSE_MODALITY.AED.toUpperCase();
+                    }
+                });
+            }
+
+            filterByPrice() {
+                const value = this.search.price.split('|');
+                this.courses = this.courses.filter(o => o.price_with_discount >= parseFloat(value[0]) && o.price_with_discount <= parseFloat(value[1]));
+            }
+
+            filterByCourse() {
+                this.courses = this.courses.filter(o => o.course.name.toUpperCase() === this.search.type.toUpperCase());
             }
 
 

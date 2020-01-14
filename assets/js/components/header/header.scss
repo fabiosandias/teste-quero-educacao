@@ -1,13 +1,13 @@
 header {
   .header {
     width: 100%;
-    background: #a54a4e;
   }
   
   .header__one, .header__two {
     display: flex;
     flex-flow: column;
     align-items: center;
+    
   }
   
   .header__one {
@@ -24,7 +24,7 @@ header {
     display: flex;
     height: 90px;
     justify-content: space-between;
-  }
+      }
   .header__how-it-works {
     display: flex;
     align-items: center;
@@ -137,5 +137,107 @@ header {
   .header__menu-ul-item--link:hover {
     background: #007A8D;
   }
+  @media screen and (min-width: 769px) {
+    .header__how-it-works--text-desk {
+      display: block;
+    }
+    .header__how-it-works--text-mb {
+      display: none;
+    }
+    .hidden-desktop {
+      display: none;
+    }
+  }
+  
+  @media screen and (max-width: 768px) {
+    
+    .hidden-mb {
+      display: none;
+    }
+    
+    .hidden-desktop {
+      display: block;
+    }
+    .header__how-it-works--text-desk {
+      display: none;
+    }
+    .header__how-it-works--text-mb {
+      display: block;
+    }
+    
+    .header__one, .header__two {
+      display: block;
+      width: 100%;
+    }
+    
+    .header__container-one {
+      width: 100%;
+      display: flex;
+    }
+    
+    .header__container-twe {
+      width: 100%;
+      display: block;
+    }
+    
+    .header__how-it-works, .header__logo, .header__name-icon {
+      display: flex;
+      height: 60px;
+      text-align: center;
+      margin: 15px
+    }
+    
+    .header__how-it-works {
+      text-align: center;
+      padding: 0 20px 0 0;
+      border-right: 3px solid #dcdcdc;
+    }
+    .header__logo {
+      position: initial;
+      
+    }
+    
+    .header__name-icon {
+      display: initial;
+      padding-left: 20px;
+      border-left: 3px solid #dcdcdc;
+    }
+    
+    .header__menu {
+      display: flex;
+      width: 100%;
+      height: 52px;
+      justify-content: space-between;
+    }
+    
+    .header__logo--text-one {
+      font-size: 30px;
+    }
+    
+    
+    .header__menu-ul-item--link {
+      padding: 17px;
+      display: flex;
+      font-size: 16px
+    }
+  
+    .header__menu-ul-mb-btn {
+      border: none;
+      background: transparent;
+      color: #FFF;
+      font-size: 14px;
+      font-weight: 700;
+      display: flex;
+    }
+    .header__menu-ul-mb-btn--icon {
+      color: #FFF;
+      font-size: 22px;
+      font-weight: 700;
+    }
+    .header__menu-ul-mb {
+      padding-right: 10px;
+    }
+  }
   
 }
+
